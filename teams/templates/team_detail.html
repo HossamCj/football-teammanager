@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}Team Details{% endblock %}
+
+{% block content %}
+    <h2 class="text-info">{{ team.name }}</h2>
+    <p class="text-secondary">{{ team.details }}</p>
+
+    <h3 class="text-info">Members:</h3>
+    {% for player in team.player_set.all %}
+       <a href="/player/{{ player.name }}">
+            <p>{{ player.name }}</p>
+       </a>
+    {% endfor %}
+{% endblock %}

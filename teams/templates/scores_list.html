@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block title %}Matches result{% endblock %}
+
+{% block content %}
+    {% for score in scores %}
+        <h2 align="center"><a href="/team/{{ score.first_team }}">{{ score.first_team }}</a> vs <a href="/team/{{ score.second_team }}">{{ score.second_team }}</a></h2>
+        <h3 align="center">{{ score.first_team_score }} - {{ score.second_team_score }}</h3>
+    {% endfor %}
+{% endblock %}

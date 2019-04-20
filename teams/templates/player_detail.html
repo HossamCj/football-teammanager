@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}Player Details{% endblock %}
+
+{% block content %}
+
+{% if player.is_captain %}
+    <h1>{{ player.name }} from <p><a href="/team/{{ player.team }}">{{ player.team }}</a></p></h1>
+    {% else %}
+    <h3>{{ player.name }} from <a href="/team/{{ player.team }}">{{ player.team }}</a></h3>
+    {% endif %}
+
+    <h5 class="text-primary">Number: <span class="text-success">{{ player.number }}</span></h5>
+    <h5 class="text-primary">Age: <span class="text-success">{{ player.age }} years old</span></h5>
+    <h5 class="text-primary">Position in field: <span class="text-success">{{ player.position_in_field }}</span></h5>
+{% endblock %}
