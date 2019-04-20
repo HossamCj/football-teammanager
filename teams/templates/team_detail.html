@@ -1,8 +1,11 @@
 {% extends 'base.html' %}
 
+{% load static %}
+
 {% block title %}Team Details{% endblock %}
 
 {% block content %}
+    <img src="{% static 'images/ic_team.png' %}" alt="team_img"/>
     <h2 class="text-info">{{ team.name }}</h2>
     <p class="text-secondary">{{ team.details }}</p>
 
