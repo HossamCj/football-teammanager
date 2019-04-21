@@ -5,7 +5,7 @@
 {% block title %}Teams list{% endblock %}
 
 {% block content %}
-    <img src="{% static 'images/ic_teams_list.png' %}" alt="teams_img"/>
+    <img class="icon-width" src="{% static 'images/ic_teams_list.png' %}" alt="teams_img"/>
     {% for team in teams %}
         <a href="/team/{{ team.name }}">
             <h1>{{ team.name }}</h1>

@@ -5,7 +5,7 @@
 {% block title %}Player Details{% endblock %}
 
 {% block content %}
-    <img src="{% static 'images/ic_player.png' %}" alt="player_img"/>
+    <img class="icon-width" src="{% static 'images/ic_player.png' %}" alt="player_img"/>
     {% if player.is_captain %}
     <h1>{{ player.name }} from <p><a href="/team/{{ player.team }}">{{ player.team }}</a></p></h1>
     {% else %}

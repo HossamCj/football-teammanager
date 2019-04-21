@@ -5,9 +5,11 @@
 {% block title %}Matches result{% endblock %}
 
 {% block content %}
-    <img src="{% static 'images/ic_game_score.png' %}" alt="game_score_img"/>
-    {% for score in scores %}
-        <h2 align="center"><a href="/team/{{ score.first_team }}">{{ score.first_team }}</a> vs <a href="/team/{{ score.second_team }}">{{ score.second_team }}</a></h2>
-        <h3 align="center">{{ score.first_team_score }} - {{ score.second_team_score }}</h3>
-    {% endfor %}
+    <div class="content-center">
+        <img class="icon-width" src="{% static 'images/ic_game_score.png' %}" alt="game_score_img"/>
+        {% for score in scores %}
+            <h2><a href="/team/{{ score.first_team }}">{{ score.first_team }}</a> vs <a href="/team/{{ score.second_team }}">{{ score.second_team }}</a></h2>
+            <h3>{{ score.first_team_score }} - {{ score.second_team_score }}</h3>
+        {% endfor %}
+    </div>
 {% endblock %}
