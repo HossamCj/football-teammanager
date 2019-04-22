@@ -9,6 +9,11 @@
         <img class="icon-width" src="{% static 'images/ic_game_score.png' %}" alt="game_score_img"/>
         {% for score in scores %}
             <h2><a href="/team/{{ score.first_team }}">{{ score.first_team }}</a> vs <a href="/team/{{ score.second_team }}">{{ score.second_team }}</a></h2>
+
+            {% ifchanged %}
+                <h3><small>{{ score.game_date | date:'d - m - y' }}</small></h3>
+            {% endifchanged %}
+
             <h3>{{ score.first_team_score }} - {{ score.second_team_score }}</h3>
         {% endfor %}
     </div>

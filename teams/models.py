@@ -39,6 +39,7 @@ class GameScore(models.Model):
     second_team = models.CharField(max_length=120)
     first_team_score = models.IntegerField(default=0)
     second_team_score = models.IntegerField(default=0)
+    game_date = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return '{} {} - {} {}'.format(self.first_team, self.first_team_score, self.second_team, self.second_team_score)
