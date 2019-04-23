@@ -17,7 +17,7 @@ from django.conf.urls import url
 from django.contrib import admin
 
 from teams import views
-from teams.views import TeamListView, GameScoreView, PlayerDetailView, TeamDetailView
+from teams.views import TeamListView, GameScoreView, PlayerDetailView, TeamDetailView, AddTeamView
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -26,4 +26,5 @@ urlpatterns = [
     url(r'^scores/$', GameScoreView.as_view(), name='game-score-view'),
     url(r'^player/(?P<slug>[-\w\x20]+)/$', PlayerDetailView.as_view(), name='player-detail-view'),
     url(r'^team/(?P<slug>[-\w\x20]+)/$', TeamDetailView.as_view(), name='team-detail-view'),
+    url(r'^add_team/', AddTeamView.as_view(), name='add-team-view'),
 ]

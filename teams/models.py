@@ -4,7 +4,7 @@ from django.db import models
 
 # Create your models here.
 class Team(models.Model):
-    name = models.CharField(max_length=120)
+    name = models.CharField(max_length=120, unique=True)
     details = models.TextField(max_length=4000)
 
     def __str__(self):

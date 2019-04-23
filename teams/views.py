@@ -1,5 +1,9 @@
-from django.shortcuts import render
+from django.db import IntegrityError
+from django.shortcuts import render, redirect
+from django.views import View
 from django.views.generic import ListView, DetailView
+
+from .forms import TeamForm, TeamModelForm
 from .models import Team, GameScore, Player
 
 
@@ -32,3 +36,25 @@ class PlayerDetailView(DetailView):
     template_name = 'player_detail.html'
     contexT_object_name = 'player'
     slug_field = 'name'
+
+
+class AddTeamView(View):
+    def get(self, request):
+        form = TeamForm()
+        context = {'form': form}
+        return render(request, 'add_team.html', context)
+
+    def post(self, request):
+        form = TeamModelForm()
+        if form.is_valid():
+            team = Team()
+            team.name = form.cleaned_data.get('name', None)
+            team.details = form.cleaned_data.get('details', None)
+            try:
+                team.save()
+                return redirect('/')
+            except IntegrityError:
+                context = {'form': form, 'error_msg': 'This team is already exist!'}
+                return render(request, 'add_team.html', context)
+        else:
+            return self.get(request)
