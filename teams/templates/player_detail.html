@@ -7,7 +7,7 @@
 {% block content %}
     <img class="icon-width" src="{% static 'images/ic_player.png' %}" alt="player_img"/>
     {% if player.is_captain %}
-    <h1>{{ player.name }} from <p><a href="/team/{{ player.team }}">{{ player.team }}</a></p></h1>
+        <h3>{{ player.name }} is captian <a href="/team/{{ player.team }}">{{ player.team }}</a> team</h3>
     {% else %}
     <h3>{{ player.name }} from <a href="/team/{{ player.team }}">{{ player.team }}</a></h3>
     {% endif %}

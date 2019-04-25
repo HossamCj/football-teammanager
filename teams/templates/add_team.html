@@ -4,7 +4,9 @@
 
 {% block content %}
     {% if error_msg %}
-        <h5>{{ error_msg }}/h5>
+        <div class="alert alert-warning">
+            <p>{{ error_msg }}</p>
+        </div>
     {% endif %}
     <form action="/add_team/" method="post">
         {% csrf_token %}

@@ -47,14 +47,8 @@ class AddTeamView(View):
     def post(self, request):
         form = TeamModelForm()
         if form.is_valid():
-            team = Team()
-            team.name = form.cleaned_data.get('name', None)
-            team.details = form.cleaned_data.get('details', None)
-            try:
-                team.save()
-                return redirect('/')
-            except IntegrityError:
-                context = {'form': form, 'error_msg': 'This team is already exist!'}
-                return render(request, 'add_team.html', context)
+            form.save()
+            return redirect('/')
         else:
-            return self.get(request)
+            context = {'form': form, 'error_msg': 'This team is already exist!'}
+            return render(request, 'add_team.html', context)
