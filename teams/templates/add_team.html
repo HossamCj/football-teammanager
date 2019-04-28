@@ -1,16 +1,28 @@
 {% extends 'base.html' %}
+{% load crispy_forms_tags %}
 
 {% block title %}Add Team{% endblock %}
 
 {% block content %}
     {% if error_msg %}
         <div class="alert alert-warning">
-            <p>{{ error_msg }}</p>
+            <p class="">{{ error_msg }}</p>
         </div>
     {% endif %}
     <form action="/add_team/" method="post">
         {% csrf_token %}
-        {{ form }}
-        <input type="submit" value="Add">
+        <!--{{ form|crispy }}-->
+        <!--<button type="submit" class="btn btn-success">Add team</button>-->
+
+        <div class="row">
+            <div class="col-6">
+                {{ form.name|as_crispy_field }}
+            </div>
+            <div class="col-6"></div>
+            <div class="col-6">
+                {{ form.details|as_crispy_field }}
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Add Team</button>
     </form>
 {% endblock %}
