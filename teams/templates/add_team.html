@@ -1,28 +1,29 @@
 {% extends 'base.html' %}
 {% load crispy_forms_tags %}
-
 {% block title %}Add Team{% endblock %}
 
 {% block content %}
     {% if error_msg %}
         <div class="alert alert-warning">
-            <p class="">{{ error_msg }}</p>
+            {{ error_msg }}
         </div>
     {% endif %}
     <form action="/add_team/" method="post">
         {% csrf_token %}
-        <!--{{ form|crispy }}-->
-        <!--<button type="submit" class="btn btn-success">Add team</button>-->
-
+        <!--
+            for using crispy form like under this line
+            you don't need to create submit field
+        -->
+        <!--{% crispy form %}-->
         <div class="row">
-            <div class="col-4">
+            <div class="col-6">
                 {{ form.name|as_crispy_field }}
             </div>
-            <div class="col-8"></div>
-            <div class="col-4">
-                {{ form.details|as_crispy_field }}
+            <div class="col-6"></div>
+            <div class="col-6">
+                {{ form.details }}
             </div>
         </div>
-        <button type="submit" class="btn btn-primary">Add Team</button>
+        <input type="submit" class="btn btn-success" value="Add Team">
     </form>
 {% endblock %}

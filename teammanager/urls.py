@@ -27,4 +27,5 @@ urlpatterns = [
     url(r'^player/(?P<slug>[-\w\x20]+)/$', PlayerDetailView.as_view(), name='player-detail-view'),
     url(r'^team/(?P<slug>[-\w\x20]+)/$', TeamDetailView.as_view(), name='team-detail-view'),
     url(r'^add_team/', AddTeamView.as_view(), name='add-team-view'),
+    # url(r'^add_score/', AddScoreView.as_view(), name='add-score-view'),
 ]
